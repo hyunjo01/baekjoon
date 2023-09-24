@@ -21,42 +21,29 @@ public class Main {
             }
         }
 
-        cut(0,max);
-        System.out.println(height);
+        int start = 0;
+        int end = max;
 
-    }
-    public static void cut(int start, int end) {
-
-        int mid = (start + end) / 2;
-        int sum = sumCuttings(mid);
-
-        if((end - start) <= 1) {
-            if(sum < m) {
-                height=mid-1;
+        while (start + 1 <= end) {
+            int mid = (start + end) / 2;
+            if(checkSum(mid)){
+                start = mid + 1;
             }
             else {
-                height=mid;
+                end = mid - 1;
             }
         }
 
-        if(sum < m) {
-            cut(start, mid - 1);
-        }
-        if(sum > m) {
-            cut(mid + 1, end);
-        }
-        if(sum == m) {
-            height=mid;
-        }
+        System.out.println((start + end) / 2);
     }
-
-    public static int sumCuttings(int h){
+    public static boolean checkSum(int h){
         int sum = 0;
         for(int i = 0; i < a.length; i++){
             if(a[i] > h) {
                 sum += a[i] - h;
             }
         }
-        return sum;
+        if(sum>=m) {return true;}
+        else {return false;}
     }
 }
