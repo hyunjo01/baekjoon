@@ -8,6 +8,7 @@ public class Main {
         long k;
 
         long[] arr = new long[n+1];
+
         arr[0] = 0;
         arr[1] = 1;
 

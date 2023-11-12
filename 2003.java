@@ -15,7 +15,6 @@ public class Main {
         m = sc.nextInt();
 
         a = new int[n];
-
         for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
         }
